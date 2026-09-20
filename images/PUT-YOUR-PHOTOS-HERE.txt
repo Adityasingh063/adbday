@@ -1,0 +1,5 @@
+Put your photos in this folder, named to match config.js:
+  hero.jpg                  -> page 1 background photo
+  photo1.jpg ... photo8.jpg -> the album (add more, and add lines in config.js)
+Use .jpg, about 1200 px wide, under 500 KB each.
+(You can delete this text file.)

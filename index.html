@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>Happy Birthday, My Love</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%82%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Caveat:wght@500;700&family=Special+Elite&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="0">
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<!-- ============ GATE ============ -->
+<div id="gate">
+  <div class="gate-in">
+    <div class="gate-for">For <span id="gateName">you</span></div>
+    <div class="env" id="openBtn" role="button" tabindex="0" aria-label="Open your surprise">
+      <div class="back"></div>
+      <div class="paper">with love</div>
+      <div class="pocket"></div>
+      <div class="flap"></div>
+      <div class="seal"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></div>
+    </div>
+    <p class="gate-sub">Tap the envelope to open it.<br>Turn your sound on, there is music inside.</p>
+  </div>
+</div>
+
+<div id="app">
+
+  <!-- ============ PAGE 1 : WISHES ============ -->
+  <section class="page" id="p0" aria-label="Birthday wishes">
+    <div id="heroBg" class="nophoto"></div>
+    <div class="veil"></div>
+    <div id="bokeh"></div>
+    <div class="scroll">
+      <header class="hero">
+        <p class="eyebrow">a little something, just for you</p>
+        <h1 class="bday">Happy Birthday</h1>
+        <p class="her" id="herName">My Love</p>
+        <div class="orn"><i></i><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg><i></i></div>
+        <p class="wish" id="wishLine"></p>
+      </header>
+      <p class="hint">Tap a card to open it <span>&#8595;</span></p>
+      <div class="cards" id="cards"></div>
+      <div class="done" id="done" hidden>
+        <p>You opened every card. There is one more surprise.</p>
+        <button class="btn" type="button" data-go="1">Walk down memory lane</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2 : MEMORY LANE ============ -->
+  <section class="page" id="p1" aria-label="Photo album">
+    <div class="paper-bg"></div>
+    <div class="album" id="album"><div class="track" id="track"></div></div>
+    <div class="grain"></div>
+    <div class="vignette"></div>
+    <div class="head"><h2>Memory Lane</h2><small>PLAY</small></div>
+    <div class="foot"></div>
+    <p class="tip" id="tip">Touch or scroll to pause. Tap a photo to bring its colours back.</p>
+  </section>
+
+  <!-- ============ PAGE 3 : TIME TOGETHER ============ -->
+  <section class="page" id="p2" aria-label="Time together">
+    <div id="sky"></div>
+    <svg id="bigclock" viewBox="-200 -200 400 400" aria-hidden="true"></svg>
+    <div class="scroll">
+      <div class="center">
+        <h2 class="t3">Our time together</h2>
+        <p class="since" id="since"></p>
+        <div class="units" id="units"></div>
+        <div class="totals" id="totals"></div>
+        <p class="closing" id="closing"></p>
+        <button class="btn" type="button" id="replay">Replay from the start</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ LETTER MODAL ============ -->
+<div class="modal" id="letter" hidden>
+  <div class="paper-card" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+    <div class="wax"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></div>
+    <button class="x" type="button" id="letterX" aria-label="Close letter">&times;</button>
+    <h2 id="letterTitle"></h2>
+    <p class="msg" id="letterText"></p>
+    <p class="sign" id="letterSign"></p>
+    <p class="skip" id="letterSkip">tap the letter to read it faster</p>
+  </div>
+</div>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="modal" id="lb" hidden>
+  <figure>
+    <img id="lbImg" alt="">
+    <figcaption><span class="cap" id="lbCap"></span><span class="date" id="lbDate"></span></figcaption>
+  </figure>
+</div>
+
+<!-- ============ DOCK ============ -->
+<nav id="dock" aria-label="Pages">
+  <button type="button" data-go="0"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 13h18M12 8c-2-4-6-4-6-1.5S10 8 12 8zM12 8c2-4 6-4 6-1.5S14 8 12 8z"/></svg><span>Wishes</span></button>
+  <button type="button" data-go="1"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg><span>Memories</span></button>
+  <button type="button" data-go="2"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Together</span></button>
+  <i class="sep"></i>
+  <button type="button" id="mus" aria-label="Turn music on or off">
+    <svg class="on-i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>
+    <svg class="off" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>
+  </button>
+</nav>
+
+<!-- config.js must load BEFORE script.js -->
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

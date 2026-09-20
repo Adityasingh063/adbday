@@ -1,0 +1,4 @@
+Put your songs in this folder, named to match config.js:
+  wishes.mp3    -> plays on page 1
+  memories.mp3  -> plays on pages 2 and 3
+Keep each under ~5 MB. (You can delete this text file.)
