@@ -89,9 +89,9 @@ const CONFIG = {
     { src: "images/photo3.jpg", caption: "Our Promise for life.",           date: "" },
     { src: "images/photo4.jpg", caption: "A day I'd replay",         date: "" },
     { src: "images/photo5.jpg", caption: "Golden hour, golden you",  date: "" },
-    { src: "images/photo7.jpg", caption: "My favourite person",      date: "" },
+    { src: "images/photo7.JPG", caption: "My favourite person",      date: "" },
     { src: "images/photo8.jpg", caption: "To many more",             date: "" },
-    { src: "images/photo9.jpg", caption: "sirf tum",             date: "" },
+    { src: "images/photo9.JPG", caption: "sirf tum",             date: "" },
     { src: "images/photo10.jpg", caption: "The Best time",             date: "" }
   ],
 
